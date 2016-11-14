@@ -124,9 +124,14 @@ function doloadstep(){ // Load in the required libraries in the proper order
 
 function newPlaylist(name){ // Create new playlist by name.
     jQuery('[data-id="create-playlist"]').click();
-	jQuery("paper-input.playlist-name").val(name);
-	jQuery("paper-button[data-action='save']").click();
-	setTimeout(runPLPause, 1000);
+    jQuery("paper-input.playlist-name").val(name);
+    setTimeout(newPlaylistSave, 1000);
+}
+
+function newPlaylistSave(){
+    jQuery("paper-button[data-action='save']").click();
+    alert("Test");
+    setTimeout(runPLPause, 1000);
 }
 function runPLPause(){ // Indicates that we can create the next playlist
 	window.plinfo['RunPL'] = true;
